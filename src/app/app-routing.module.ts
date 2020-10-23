@@ -1,16 +1,18 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { DeviceInfoComponent } from './device-info/device-info.component';
-import { AboutMeComponent } from './about-me/about-me.component';
+
+
+import { HomeComponent } from './home/home.component';
+import {  ConfigurationComponent } from './general/configuration/configuration.component';
 
 const routes: Routes = [
-    { path: '', component: AboutMeComponent },
-    { path: 'device-info', component: DeviceInfoComponent },
+    { path: '', component: HomeComponent },
+    { path: 'configuration', component: ConfigurationComponent },
 ]
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
     ],
     exports: [ RouterModule ]
 })
