@@ -8,14 +8,22 @@ import { AppComponent } from './app.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HomeComponent } from './home/home.component';
-import { ConfigurationComponent } from './general/configuration/configuration.component';
-
-import { HeaderComponent } from './general/header/header.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+//Manual components
+import { CloudListComponent } from './manual/cloud-list/cloud-list.component';
+import { HomeComponent } from './manual/home/home.component';
+
+//General components
+import { MenuComponent } from './general/menu/menu.component';
+import { ConfigurationComponent } from './general/configuration/configuration.component';
+import { HeaderComponent } from './general/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +31,9 @@ import {MatInputModule} from '@angular/material/input';
     AboutMeComponent,
     HomeComponent,
     ConfigurationComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent,
+    CloudListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,10 @@ import {MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

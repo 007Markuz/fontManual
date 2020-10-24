@@ -1,13 +1,22 @@
-.example-container {
-  width: 400px;
-  height: 200px;
-  margin: 12px;
-  border: 1px solid #555;
-}
 
-mat-drawer-content {
+.example-container {
+
+
+  min-height: 200px;
+}
+.example-sidenav{
   padding: 12px;
+
+  min-height: 200px;
+}
+.mat-drawer-content {
+ margin: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-height: 200px;
+}
+.example-sidenav-content{
+  padding: 12px;
+  min-height: 200px;
 }
