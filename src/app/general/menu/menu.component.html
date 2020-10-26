@@ -1,7 +1,7 @@
-<button mat-icon-button aria-label="home" [routerLink]="'/'">
+<button mat-icon-button aria-label="home" (click)="goto('/')" >
   <mat-icon>home</mat-icon>
 </button>
 <br/>
-<button mat-icon-button aria-label="Configuration" [routerLink]="'/configuration'">
+<button mat-icon-button aria-label="Configuration" (click)="goto('/configuration')" >
     <mat-icon>settings</mat-icon>
   </button>

@@ -1,6 +1,19 @@
-<div class="p-4">
+<div class="configuration p-4">
   <h4>Your Device Info</h4>
-  <table class="table table-hover mt-3">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Favorite food</mat-label>
+        <input matInput placeholder="{{urlService}}"  [(ngModel)]="urlService">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <mat-label>Primer Id</mat-label>
+          <input matInput placeholder="{{firtsId}}"  [(ngModel)]="firtsId">
+        </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="save()">Guardar</button>
+
+  <!--table class="table table-hover mt-3" *ngIf='this.deviceInfo'>
       <tr>
           <td>Device Model</td>
           <td>{{deviceInfo.model}}</td>
@@ -25,7 +38,7 @@
           <td>Device Serial</td>
           <td>{{deviceInfo.serial}}</td>
       </tr>
-  </table>
+  </table-->
   <div class="col-md-6 offset-md-3">
       <a class="col-md-6 offset-md-3 btn btn-primary" routerLink="/">Home</a>
   </div>

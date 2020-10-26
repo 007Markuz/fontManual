@@ -4153,8 +4153,8 @@ module.exports = getBuiltIn('document', 'documentElement');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/AngularToMobileProject/src/polyfills.ts */"hN/g");
-module.exports = __webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/AngularToMobileProject/node_modules/@angular-devkit/build-angular/src/webpack/jit-polyfills.js */"rZy+");
+__webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/Manual/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/Manual/node_modules/@angular-devkit/build-angular/src/webpack/jit-polyfills.js */"rZy+");
 
 
 /***/ }),

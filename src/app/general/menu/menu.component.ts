@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionStoreService} from '../../core/store/session-store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionStore: SessionStoreService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goto(href){
+    this.router.navigateByUrl(href );
   }
 
 }

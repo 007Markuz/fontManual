@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component,ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { SidenavService } from './core/service/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showFiller = false;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
+  constructor(private sidenavService: SidenavService) {
+  }
+
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav)
+  }
 }

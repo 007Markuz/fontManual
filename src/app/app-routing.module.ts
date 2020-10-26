@@ -8,7 +8,7 @@ import {  ConfigurationComponent } from './general/configuration/configuration.c
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'cloud-list', component: CloudListComponent },
+    { path: 'cloud-list/:id', component: CloudListComponent },
     { path: 'configuration', component: ConfigurationComponent },
 ]
 

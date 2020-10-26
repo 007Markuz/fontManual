@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/AngularToMobileProject/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /Users/marcos.heredia/Documents/worckspace/Marcos/Manual/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -51,6 +51,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "6E3D":
+/*!******************************************************!*\
+  !*** ./src/app/core/store/category-store.service.ts ***!
+  \******************************************************/
+/*! exports provided: CategoryStoreService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryStoreService", function() { return CategoryStoreService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _service_categoris_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/categoris.service */ "JrP1");
+
+
+
+var CategoryStoreService = /** @class */ (function () {
+    function CategoryStoreService(categorisService) {
+        this.categorisService = categorisService;
+    }
+    CategoryStoreService.prototype.load = function (id) {
+        this.list = this.categorisService.resolveItems(id);
+    };
+    CategoryStoreService.ctorParameters = function () { return [
+        { type: _service_categoris_service__WEBPACK_IMPORTED_MODULE_2__["CategorisService"] }
+    ]; };
+    CategoryStoreService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_service_categoris_service__WEBPACK_IMPORTED_MODULE_2__["CategorisService"]])
+    ], CategoryStoreService);
+    return CategoryStoreService;
+}());
+
+
+
+/***/ }),
+
 /***/ "6Nlz":
 /*!***************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/manual/home/home.component.html ***!
@@ -60,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<button mat-fab color=\"primary\" aria-label=\"get cloud list\" [routerLink]=\"'/cloud-list'\">\n    <mat-icon>cloud_queue</mat-icon>\n  </button>\n  <br/>\n  <br/>\n<button mat-fab color=\"primary\" aria-label=\"Example icon button with a heart icon\">\n  <mat-icon>home_work</mat-icon>\n</button>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<button mat-fab color=\"primary\" aria-label=\"get cloud list\" (click)=\"goto()\">\n    <mat-icon>cloud_queue</mat-icon>\n  </button>\n  <br/>\n  <br/>\n<button mat-fab color=\"primary\" aria-label=\"Example icon button with a heart icon\">\n  <mat-icon>home_work</mat-icon>\n</button>\n");
 
 /***/ }),
 
@@ -73,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table mat-table\n       [dataSource]=\"dataSource\" multiTemplateDataRows\n       class=\"mat-elevation-z8\">\n\n\n  <ng-container matColumnDef=\"name\" >\n      <th mat-header-cell *matHeaderCellDef>nombre </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"position\" >\n    <th mat-header-cell *matHeaderCellDef> position </th>\n    <td mat-cell *matCellDef=\"let element\" class=\"rowElement\" >\n\n        <button mat-icon-button aria-label=\"home\" (click)=\"goTo(element.positio)\">\n          <mat-icon>play_arrow</mat-icon>\n        </button>\n       </td>\n  </ng-container>\n\n  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\n  <ng-container matColumnDef=\"expandedDetail\">\n    <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\n      <div class=\"example-element-detail\"\n           [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n        <div class=\"example-element-diagram\">\n        </div>\n        <div class=\"example-element-description\">\n          {{element.description}}\n        </div>\n      </div>\n    </td>\n  </ng-container>\n\n  <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\"\n      class=\"example-element-row\"\n      [class.example-expanded-row]=\"expandedElement === element\"\n      (click)=\"expandedElement = expandedElement === element ? null : element\">\n  </tr>\n  <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n</table>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<table mat-table\n       [dataSource]=\"categoriStore.list\" multiTemplateDataRows\n       class=\"mat-elevation-z8\">\n\n\n  <ng-container matColumnDef=\"name\" >\n      <th mat-header-cell *matHeaderCellDef>nombre </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"position\" >\n    <th mat-header-cell *matHeaderCellDef> position </th>\n    <td mat-cell *matCellDef=\"let element\" class=\"rowElement\" >\n\n        <button mat-icon-button aria-label=\"home\" (click)=\"goTo(element.id)\">\n          <mat-icon>play_arrow</mat-icon>\n        </button>\n       </td>\n  </ng-container>\n\n  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\n  <ng-container matColumnDef=\"expandedDetail\">\n    <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\n      <div class=\"example-element-detail\"\n           [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n        <div class=\"example-element-description\">\n          {{element.description}}\n        </div>\n      </div>\n    </td>\n  </ng-container>\n\n  <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\"\n      class=\"example-element-row\"\n      [class.example-expanded-row]=\"expandedElement === element\"\n      (click)=\"expandedElement = expandedElement === element ? null : element\">\n  </tr>\n  <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n</table>\n");
 
 /***/ }),
 
@@ -183,6 +222,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "JQ1C":
+/*!*****************************************************!*\
+  !*** ./src/app/core/store/session-store.service.ts ***!
+  \*****************************************************/
+/*! exports provided: SessionStoreService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionStoreService", function() { return SessionStoreService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+var SessionStoreService = /** @class */ (function () {
+    function SessionStoreService() {
+        this.urlService = "http://192.168.1.202:1880/page?id=";
+        this.firtsId = "categories";
+    }
+    SessionStoreService.ctorParameters = function () { return []; };
+    SessionStoreService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    ], SessionStoreService);
+    return SessionStoreService;
+}());
+
+
+
+/***/ }),
+
+/***/ "JrP1":
+/*!***************************************************!*\
+  !*** ./src/app/core/service/categoris.service.ts ***!
+  \***************************************************/
+/*! exports provided: CategorisService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategorisService", function() { return CategorisService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _store_session_store_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/session-store.service */ "JQ1C");
+
+
+
+
+
+
+var CategorisService = /** @class */ (function () {
+    function CategorisService(http, sessionStore) {
+        this.http = http;
+        this.sessionStore = sessionStore;
+        this.HttpHeaders = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        };
+    }
+    CategorisService.prototype.resolveItems = function (id) {
+        console.log('Request is sent!');
+        return this.http.get(this.sessionStore.urlService + id, this.HttpHeaders).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+    };
+    CategorisService.prototype.handleError = function (error) {
+        var errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            // Get client-side error
+            errorMessage = error.error.message;
+        }
+        else {
+            // Get server-side error
+            errorMessage = "Error Code: " + error.status + "\nMessage: " + error.message;
+        }
+        //window.alert(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(errorMessage);
+    };
+    CategorisService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+        { type: _store_session_store_service__WEBPACK_IMPORTED_MODULE_5__["SessionStoreService"] }
+    ]; };
+    CategorisService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _store_session_store_service__WEBPACK_IMPORTED_MODULE_5__["SessionStoreService"]])
+    ], CategorisService);
+    return CategorisService;
+}());
+
+
+
+/***/ }),
+
 /***/ "NgH1":
 /*!************************************************!*\
   !*** ./src/app/about-me/about-me.component.ts ***!
@@ -237,21 +376,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cloud_list_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cloud-list.component.css */ "5Ljw");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/animations */ "R0Ic");
+/* harmony import */ var _core_store_category_store_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/store/category-store.service */ "6E3D");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
+
 
 
 
 
 
 var CloudListComponent = /** @class */ (function () {
-    function CloudListComponent() {
-        this.dataSource = ELEMENT_DATA;
+    function CloudListComponent(categoriStore, router, activatedRoute) {
+        this.categoriStore = categoriStore;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
         this.columnsToDisplay = ['name', 'position'];
     }
     CloudListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.categoriStore.load(params.id);
+        });
     };
     CloudListComponent.prototype.goTo = function (id) {
+        this.categoriStore.load(id);
     };
-    CloudListComponent.ctorParameters = function () { return []; };
+    CloudListComponent.ctorParameters = function () { return [
+        { type: _core_store_category_store_service__WEBPACK_IMPORTED_MODULE_5__["CategoryStoreService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
+    ]; };
     CloudListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-cloud-list',
@@ -265,74 +419,11 @@ var CloudListComponent = /** @class */ (function () {
             ],
             styles: [_cloud_list_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_core_store_category_store_service__WEBPACK_IMPORTED_MODULE_5__["CategoryStoreService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
     ], CloudListComponent);
     return CloudListComponent;
 }());
 
-var ELEMENT_DATA = [
-    {
-        position: 1,
-        name: 'Hydrogen',
-        weight: 1.0079,
-        symbol: 'H',
-        description: "Hydrogen is a chemical element with symbol H and atomic number 1. With a standard\n        atomic weight of 1.008, hydrogen is the lightest element on the periodic table."
-    }, {
-        position: 2,
-        name: 'Helium',
-        weight: 4.0026,
-        symbol: 'He',
-        description: "Helium is a chemical element with symbol He and atomic number 2. It is a\n        colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas\n        group in the periodic table. Its boiling point is the lowest among all the elements."
-    }, {
-        position: 3,
-        name: 'Lithium',
-        weight: 6.941,
-        symbol: 'Li',
-        description: "Lithium is a chemical element with symbol Li and atomic number 3. It is a soft,\n        silvery-white alkali metal. Under standard conditions, it is the lightest metal and the\n        lightest solid element."
-    }, {
-        position: 4,
-        name: 'Beryllium',
-        weight: 9.0122,
-        symbol: 'Be',
-        description: "Beryllium is a chemical element with symbol Be and atomic number 4. It is a\n        relatively rare element in the universe, usually occurring as a product of the spallation of\n        larger atomic nuclei that have collided with cosmic rays."
-    }, {
-        position: 5,
-        name: 'Boron',
-        weight: 10.811,
-        symbol: 'B',
-        description: "Boron is a chemical element with symbol B and atomic number 5. Produced entirely\n        by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a\n        low-abundance element in the Solar system and in the Earth's crust."
-    }, {
-        position: 6,
-        name: 'Carbon',
-        weight: 12.0107,
-        symbol: 'C',
-        description: "Carbon is a chemical element with symbol C and atomic number 6. It is nonmetallic\n        and tetravalent\u2014making four electrons available to form covalent chemical bonds. It belongs\n        to group 14 of the periodic table."
-    }, {
-        position: 7,
-        name: 'Nitrogen',
-        weight: 14.0067,
-        symbol: 'N',
-        description: "Nitrogen is a chemical element with symbol N and atomic number 7. It was first\n        discovered and isolated by Scottish physician Daniel Rutherford in 1772."
-    }, {
-        position: 8,
-        name: 'Oxygen',
-        weight: 15.9994,
-        symbol: 'O',
-        description: "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of\n         the chalcogen group on the periodic table, a highly reactive nonmetal, and an oxidizing\n         agent that readily forms oxides with most elements as well as with other compounds."
-    }, {
-        position: 9,
-        name: 'Fluorine',
-        weight: 18.9984,
-        symbol: 'F',
-        description: "Fluorine is a chemical element with symbol F and atomic number 9. It is the\n        lightest halogen and exists as a highly toxic pale yellow diatomic gas at standard\n        conditions."
-    }, {
-        position: 10,
-        name: 'Neon',
-        weight: 20.1797,
-        symbol: 'Ne',
-        description: "Neon is a chemical element with symbol Ne and atomic number 10. It is a noble gas.\n        Neon is a colorless, odorless, inert monatomic gas under standard conditions, with about\n        two-thirds the density of air."
-    },
-];
 
 
 /***/ }),
@@ -439,23 +530,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_home_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./home.component.html */ "6Nlz");
 /* harmony import */ var _home_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home.component.css */ "Fjkn");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../core/store/session-store.service */ "JQ1C");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
+
 
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(sessionStore, router) {
+        this.sessionStore = sessionStore;
+        this.router = router;
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
-    HomeComponent.ctorParameters = function () { return []; };
+    HomeComponent.prototype.goto = function () {
+        this.router.navigateByUrl('/cloud-list/' + this.sessionStore.firtsId);
+    };
+    HomeComponent.ctorParameters = function () { return [
+        { type: _core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__["SessionStoreService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+    ]; };
     HomeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-home',
             template: _raw_loader_home_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_home_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__["SessionStoreService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -473,7 +576,7 @@ var HomeComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"p-4\">\n  <h4>Your Device Info</h4>\n  <table class=\"table table-hover mt-3\">\n      <tr>\n          <td>Device Model</td>\n          <td>{{deviceInfo.model}}</td>\n      </tr>\n      <tr>\n          <td>Device Platform</td>\n          <td>{{deviceInfo.platform}}</td>\n      </tr>\n      <tr>\n          <td>Device UID</td>\n          <td>{{deviceInfo.uuid}}</td>\n      </tr>\n      <tr>\n          <td>Device Version</td>\n          <td>{{deviceInfo.version}}</td>\n      </tr>\n      <tr>\n          <td>Device Manufacturer</td>\n          <td>{{deviceInfo.manufacturer}}</td>\n      </tr>\n      <tr>\n          <td>Device Serial</td>\n          <td>{{deviceInfo.serial}}</td>\n      </tr>\n  </table>\n  <div class=\"col-md-6 offset-md-3\">\n      <a class=\"col-md-6 offset-md-3 btn btn-primary\" routerLink=\"/\">Home</a>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"p-4\">\n  <h4>Your Device Info</h4>\n  <table class=\"table table-hover mt-3\">\n    <tr>\n      <td>\n      <mat-form-field class=\"example-full-width\">\n        <mat-label>Favorite food</mat-label>\n        <input matInput placeholder=\"http://www.todoPf.com\"  [(ngModel)]=\"urlService\">\n      </mat-form-field>\n      </td>\n  </tr>\n  <tr>\n      <td>\n      <mat-form-field class=\"example-full-width\">\n          <mat-label>Primer Id</mat-label>\n          <input matInput placeholder=\"categories\"  [(ngModel)]=\"firtsId\">\n        </mat-form-field>\n\n    </td>\n</tr>\n<tr>\n  <td>\n      <button mat-raised-button color=\"primary\" (click)=\"save()\">Guardar</button>\n  </td>\n</tr>\n  </table><br/>\n  <table class=\"table table-hover mt-3\" *ngIf='this.deviceInfo'>\n      <tr>\n          <td>Device Model</td>\n          <td>{{deviceInfo.model}}</td>\n      </tr>\n      <tr>\n          <td>Device Platform</td>\n          <td>{{deviceInfo.platform}}</td>\n      </tr>\n      <tr>\n          <td>Device UID</td>\n          <td>{{deviceInfo.uuid}}</td>\n      </tr>\n      <tr>\n          <td>Device Version</td>\n          <td>{{deviceInfo.version}}</td>\n      </tr>\n      <tr>\n          <td>Device Manufacturer</td>\n          <td>{{deviceInfo.manufacturer}}</td>\n      </tr>\n      <tr>\n          <td>Device Serial</td>\n          <td>{{deviceInfo.serial}}</td>\n      </tr>\n  </table>\n  <div class=\"col-md-6 offset-md-3\">\n      <a class=\"col-md-6 offset-md-3 btn btn-primary\" routerLink=\"/\">Home</a>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -492,19 +595,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "Sy1n");
-/* harmony import */ var _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./about-me/about-me.component */ "NgH1");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/icon */ "NFeN");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "XhcP");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/toolbar */ "/t3+");
-/* harmony import */ var _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./manual/cloud-list/cloud-list.component */ "S85R");
-/* harmony import */ var _manual_home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./manual/home/home.component */ "WJYl");
-/* harmony import */ var _general_menu_menu_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./general/menu/menu.component */ "AiLL");
-/* harmony import */ var _general_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./general/configuration/configuration.component */ "emH0");
-/* harmony import */ var _general_header_header_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./general/header/header.component */ "TvS+");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./about-me/about-me.component */ "NgH1");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "NFeN");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sidenav */ "XhcP");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/toolbar */ "/t3+");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./manual/cloud-list/cloud-list.component */ "S85R");
+/* harmony import */ var _manual_home_home_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./manual/home/home.component */ "WJYl");
+/* harmony import */ var _general_menu_menu_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./general/menu/menu.component */ "AiLL");
+/* harmony import */ var _general_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./general/configuration/configuration.component */ "emH0");
+/* harmony import */ var _general_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./general/header/header.component */ "TvS+");
+
+
 
 
 
@@ -532,23 +639,25 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_5__["AboutMeComponent"],
-                _manual_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
-                _general_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_16__["ConfigurationComponent"],
-                _general_header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"],
-                _general_menu_menu_component__WEBPACK_IMPORTED_MODULE_15__["MenuComponent"],
-                _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_13__["CloudListComponent"]
+                _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_6__["AboutMeComponent"],
+                _manual_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"],
+                _general_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_18__["ConfigurationComponent"],
+                _general_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"],
+                _general_menu_menu_component__WEBPACK_IMPORTED_MODULE_17__["MenuComponent"],
+                _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_15__["CloudListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
-                _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__["MatSidenavModule"],
-                _angular_material_table__WEBPACK_IMPORTED_MODULE_11__["MatTableModule"],
-                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__["MatToolbarModule"]
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"],
+                _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__["MatSidenavModule"],
+                _angular_material_table__WEBPACK_IMPORTED_MODULE_12__["MatTableModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_13__["MatToolbarModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -570,7 +679,7 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb25maWd1cmF0aW9uLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbmZpZ3VyYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsV0FBVztBQUNiOztBQUVBO0VBQ0UsV0FBVztBQUNiIiwiZmlsZSI6ImNvbmZpZ3VyYXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWZvcm0ge1xuICBtaW4td2lkdGg6IDE1MHB4O1xuICBtYXgtd2lkdGg6IDUwMHB4O1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmV4YW1wbGUtZnVsbC13aWR0aCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -624,12 +733,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_configuration_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./configuration.component.html */ "XT/g");
 /* harmony import */ var _configuration_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./configuration.component.css */ "cS28");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../core/store/session-store.service */ "JQ1C");
+
 
 
 
 
 var ConfigurationComponent = /** @class */ (function () {
-    function ConfigurationComponent() {
+    function ConfigurationComponent(sessionStore) {
+        this.sessionStore = sessionStore;
+        this.urlService = sessionStore.urlService;
+        this.firtsId = sessionStore.firtsId;
     }
     ConfigurationComponent.prototype.ngOnInit = function () {
         this.deviceInfo = {
@@ -641,14 +755,20 @@ var ConfigurationComponent = /** @class */ (function () {
             serial: device.serial
         };
     };
-    ConfigurationComponent.ctorParameters = function () { return []; };
+    ConfigurationComponent.prototype.save = function () {
+        this.sessionStore.urlService = this.urlService;
+        this.sessionStore.firtsId = this.firtsId;
+    };
+    ConfigurationComponent.ctorParameters = function () { return [
+        { type: _core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__["SessionStoreService"] }
+    ]; };
     ConfigurationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-configuration',
             template: _raw_loader_configuration_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_configuration_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_core_store_session_store_service__WEBPACK_IMPORTED_MODULE_4__["SessionStoreService"]])
     ], ConfigurationComponent);
     return ConfigurationComponent;
 }());
@@ -694,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     { path: '', component: _manual_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-    { path: 'cloud-list', component: _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_4__["CloudListComponent"] },
+    { path: 'cloud-list/:id', component: _manual_cloud_list_cloud_list_component__WEBPACK_IMPORTED_MODULE_4__["CloudListComponent"] },
     { path: 'configuration', component: _general_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_5__["ConfigurationComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
